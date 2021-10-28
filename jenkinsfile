@@ -9,6 +9,7 @@ pipeline{
         stage ('scm'){
             when{
                 branch "${params.Branch}"
+                not {branch 'main'}
             }
             options{
                 timeout(time:1, unit:'HOURS')
