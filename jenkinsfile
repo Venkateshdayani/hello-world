@@ -1,0 +1,37 @@
+pipeline{
+    agent any
+    parameters{
+        string (name: 'Branch', defaultValue: 'master', description: 'branch to integrate')
+        choice (name: 'choices', choices:['package','install'], description: 'choice of you')
+    }
+
+    stages{
+        stage ('scm'){
+            options{
+                timeout(time:1, unit:'HOURS')
+                timestamps()
+            }
+            steps{
+                git branch: "${params.Branch}", url:'https://github.com/Venkateshdayani/hello-world.git'
+            }
+        }
+        stage ('build'){
+            steps{
+                sh "mvn ${params.choices}"
+            }
+        }
+    }
+    post{
+        success {
+            archive '**/*.war'
+            junit '**/TEST-*.xml'
+        }
+        failure {
+            echo 'failed'
+        }
+        always {
+            echo 'finished'
+        }
+    }
+
+}
