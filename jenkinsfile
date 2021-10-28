@@ -40,6 +40,12 @@ pipeline{
         always {
             echo 'finished'
         }
+        unstable{
+            echo 'unstable'
+        }
+        unsuccessful{
+            echo 'unsuccessful'
+        }
     }
 
 }
