@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    triggers{
+        cron ('*/1 * * * *')
+    }
     parameters{
         string (name: 'Branch', defaultValue: 'master', description: 'branch to integrate')
         choice (name: 'choices', choices:['package','install'], description: 'choice of you')
