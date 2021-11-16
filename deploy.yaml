@@ -5,4 +5,4 @@
   tasks:
     - name: message
       debug:
-        msg: "ansible is wroking"
+        msg: "ansible is working"

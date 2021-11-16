@@ -33,7 +33,7 @@ pipeline{
                 label 'ansible'
             }
             steps{
-                sh 'cd hello-world && ansible-playbook -i hosts deploy.yaml'
+                sh 'ansible-playbook -i hosts deploy.yaml'
             }
         }
     }
