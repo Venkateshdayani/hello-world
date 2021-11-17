@@ -26,6 +26,7 @@ pipeline{
             steps{
                 sh "mvn ${params.choices}"
                 echo env.name
+                stash includes : '**/webapp.war', name: 'file'
             }
         }
         stage ('deploy'){
@@ -33,6 +34,7 @@ pipeline{
                 label 'ansible'
             }
             steps{
+                unstash name: 'file'
                 sh 'ansible-playbook -i hosts deploy.yaml'
             }
         }
