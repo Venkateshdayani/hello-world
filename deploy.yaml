@@ -5,6 +5,6 @@
   tasks:
     - name: copy war file to target server
       copy:
-        src: /jenkins/jenkins_root/workspace/deployment/webapp/target/webapp.war
+        src: /jenkins_root/workspace/deployment/webapp/target/webapp.war
         dest: /opt/apache-tomcat-9.0.54/webapps
         remote_src: yes
