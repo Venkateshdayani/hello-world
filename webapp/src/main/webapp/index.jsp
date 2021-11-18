@@ -1,3 +1,3 @@
 <h1> Hello, Welcome to Venkatesh Dayani first continuous integration !!!! </h1>
-<h2> Sucessfully completed first integration ! <h2>
+<h2> Successfully completed first integration ! <h2>
 
